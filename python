@@ -1,0 +1,506 @@
+// задание 1 
+import java.util.Scanner;
+public class TheSecondTask {
+    public static void main(String[] args) {
+
+            Scanner in = new Scanner(System.in);
+            System.out.print("Введите длину: ");
+        int numberFromuser = 0;
+
+
+        while (!in.hasNextInt() ) {
+                    System.out.println("Это не число !" + "\n" + "Введите число");
+                    in.next(); // this is important!
+                }
+        
+        numberFromuser =in.nextInt();
+
+            Scanner in2 = new Scanner(System.in);
+            System.out.print("Введите порог: ");
+              int thresholdFromUser = 0;
+            while (!in2.hasNextInt() ) {
+                System.out.println("Это не число !" + "\n" + "Введите число");
+                in2.next(); // this is important!
+            }
+        thresholdFromUser = in2.nextInt();
+
+
+        // наполняем массив случайными значениями
+        int[] arrayRandom = new int[numberFromuser];
+        for (int i =0; i<arrayRandom.length;i++){
+            arrayRandom[i] = (int) (Math.random() * 10);
+        };
+        //выводим массив в консоль
+        String array = "";
+        for (int i = 0; i< arrayRandom.length;i++){
+            array = array + " " + arrayRandom[i];
+        };
+        //"фильтруем" текущий массив
+        String result = "";
+        for(int i = 0; i < arrayRandom.length; i++){
+            if(arrayRandom[i] > thresholdFromUser ){
+                result = result + " " + i ;
+            }
+        }
+        System.out.println("Массив:" + array);
+        System.out.println("Индексы элементов, которые превосходят порог "+ thresholdFromUser +  ":" + result );
+
+
+    }
+}
+
+// Задание 2 
+
+
+import java.util.Scanner;
+public class TheSecondTask {
+    public static void main(String[] args) {
+
+            Scanner in = new Scanner(System.in);
+            System.out.print("m: ");
+        int m = 0;
+
+
+        while (!in.hasNextInt() ) {
+                    System.out.println("Это не число !" + "\n" + "Введите число");
+                    in.next(); // this is important!
+                }
+
+        m =in.nextInt();
+
+            Scanner in2 = new Scanner(System.in);
+            System.out.print("n: ");
+              int n = 0;
+            while (!in2.hasNextInt() ) {
+                System.out.println("Это не число !" + "\n" + "Введите число");
+                in2.next(); // this is important!
+            }
+        n = in2.nextInt();
+
+        //Заполняем массив случайными значениями
+        int[][] twoDimArray = new int[n][m];
+        //счетчики
+        int [] TotalRow = new int[n];
+        int [] TotalCol = new int[m];
+
+        for(int i =0; i<n;i++){
+
+            for (int j=0;j<m;j++){
+                twoDimArray[i][j] = (int)(Math.random() *10);
+                TotalRow[i]= TotalRow[i] + twoDimArray[i][j];
+                TotalCol[j] = TotalCol[j] + twoDimArray[i][j];
+            }
+        }
+
+        for (int i =0 ;i < n; i++ ){
+
+            for (int j = 0; j < m;j++){
+                System.out.print(twoDimArray[i][j] + " ");
+            }
+
+            System.out.print("Сумма строки: "+TotalRow[i]);
+            System.out.println("\n");
+        }
+        System.out.print("Сумма элементов столбцов: ");
+        System.out.print("\n");
+        for(int i= 0; i < TotalCol.length; i++){
+            System.out.print(TotalCol[i] + " ");
+        }
+        System.out.print("\n");
+    }
+}
+// задание 3 
+
+import java.util.Scanner;
+public class TheSecondTask {
+    public static void main(String[] args) {
+
+            Scanner in2 = new Scanner(System.in);
+            System.out.print("Введите размер массива: ");
+              int n = 0;
+            while (!in2.hasNextInt() ) {
+                System.out.println("Это не число !" + "\n" + "Введите число");
+                in2.next(); // this is important!
+            }
+        n = in2.nextInt();
+            
+        int array[] = new int[n];
+        String result = "";
+        String reverseResult = "";
+        // Наполняем массив рандомными значениями
+        int max = 10;
+        int min = 1;
+        for(int i =0; i< array.length; i++){
+            array[i] = (int)((Math.random())* 10);
+            result = result+" "+array[i];
+            reverseResult = array[i] +" "+ reverseResult;
+        }
+        //Выводим массив
+        System.out.println("Исходный массив:"+"\n"+result);
+        System.out.println("Перевёрнутый массив:"+"\n"+reverseResult);
+
+    }
+}
+
+// Задание 4
+
+import java.util.Scanner;
+public class TheSecondTask {
+    public static void main(String[] args) {
+
+        Scanner in2 = new Scanner(System.in);
+        System.out.print("Введите размер массива: ");
+        int n = 0;
+        while (!in2.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in2.next(); // this is important!
+        }
+        n = in2.nextInt();
+
+        Scanner in4 = new Scanner(System.in);
+        System.out.print("Введите минимальное значение диапазона: ");
+        int min = 0;
+        while (!in4.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in4.next(); // this is important!
+        }
+        min = in4.nextInt();
+
+        Scanner in3 = new Scanner(System.in);
+        System.out.print("Введите максимальное значение диапазона: ");
+        int max = 0;
+        while (!in3.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in3.next(); // this is important!
+        }
+         max = in3.nextInt();
+
+
+
+        int array[] = new int[n];
+        // Заполняем массив, считаем сумму и записываем массив в переменную.
+        String ourArray = "";
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) ((Math.random() * (max - min)) + min);
+            sum += array[i];
+            ourArray += array[i] + " ";
+        }
+        int arithmeticMean = sum / array.length;
+        System.out.println("Массив: " + "\n" + ourArray);
+        System.out.println("Сумма элементов массива: " + sum);
+        System.out.println("Ср. арифметическое: " + arithmeticMean);
+
+    }
+}
+
+// Задание 5 
+
+import java.util.Scanner;
+public class TheSecondTask {
+    public static void main(String[] args) {
+
+        Scanner in2 = new Scanner(System.in);
+        System.out.print("Введите размер массива: ");
+        int n = 0;
+        while (!in2.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in2.next(); // this is important!
+        }
+        n = in2.nextInt();
+
+        Scanner in4 = new Scanner(System.in);
+        System.out.print("Введите минимальное значение диапазона: ");
+        int min = 0;
+        while (!in4.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in4.next(); // this is important!
+        }
+        min = in4.nextInt();
+
+        Scanner in3 = new Scanner(System.in);
+        System.out.print("Введите максимальное значение диапазона: ");
+        int max = 0;
+        while (!in3.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in3.next(); // this is important!
+        }
+         max = in3.nextInt();
+
+
+
+        int arrayOne[] = new int[n];
+        int arraySecond[] = new int[n];
+        int sum = 0;
+        // Заполняем массив, считаем сумму и записываем массив в переменную.
+        String ourArray1 = "";
+        String ourArray2 = "";
+        String resultSum = " ";
+        for(int i =0; i< arrayOne.length; i++){
+            //Наполняем 2 массива рандомными значениями
+            arrayOne[i] = (int)((Math.random() * (max - min)) + min);
+            arraySecond[i] = (int)((Math.random() * (max - min)) + min);
+            //Складываем значения каждого сгенерированного значения
+            sum =  arrayOne[i] + arraySecond[i];
+            // Записываем значения в переменную 
+            ourArray1 += " " + arrayOne[i];
+            ourArray2 += " " + arraySecond[i];
+            // Выводим результат сложения
+            resultSum += sum + " ";
+
+        }
+
+        System.out.println("Массив1: " + ourArray1);
+        System.out.println("Массив1: " + ourArray2);
+        System.out.println("Результат сложения: " + resultSum);
+
+    }
+}
+
+/ Задание 6 
+// фича - нельзя указать кол-во строк больше чем кол - во стобцов 
+
+import java.util.Scanner;
+public class TheSecondTask {
+    public static void main(String[] args) {
+
+        Scanner in2 = new Scanner(System.in);
+        System.out.print("Введите кол-во строк: ");
+        int n = 0;
+        while (!in2.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in2.next(); // this is important!
+        }
+        n = in2.nextInt();
+
+        Scanner in1 = new Scanner(System.in);
+        System.out.print("Введите кол-во столбцов: ");
+        int m = 0;
+        while (!in1.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in1.next(); // this is important!
+        }
+        m = in1.nextInt();
+
+        Scanner in4 = new Scanner(System.in);
+        System.out.print("Введите минимальное значение диапазона: ");
+        int min = 0;
+        while (!in4.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in4.next(); // this is important!
+        }
+        min = in4.nextInt();
+
+        Scanner in3 = new Scanner(System.in);
+        System.out.print("Введите максимальное значение диапазона: ");
+        int max = 0;
+        while (!in3.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in3.next(); // this is important!
+        }
+         max = in3.nextInt();
+
+        // объявляем 2 массива размерностью n x m
+        int[][] firstDimArray = new int[n][m];
+        int[][] secondDimArray = new int[n][m];
+
+        // заполняем массивы
+        for(int i =0; i<n;i++){
+            for (int j=0;j<m;j++){
+                firstDimArray[i][j] = (int)((Math.random() * (max - min)) + min);
+                secondDimArray[i][j] = (int)((Math.random() * (max - min)) + min);
+
+            }
+        }
+        // вывод результата
+        System.out.print("Исходные массивы:" + "\n");
+        // записываем в переменную массив
+        // переменные для массива
+        String resultForfirst ="";
+        String resultForSecond ="";
+        // объявляем результирующую переменную глобально
+        String arrResult = "";
+        // цикл заполняет рандомными значениями столбцы
+        for (int i =0 ;i < n; i++ ){
+            //Мы должны "очистить" переменные после формирования новой строки
+            resultForSecond ="";
+            resultForfirst ="";
+            // создаем переменную для подсчёта результата умножения и переменную для записи результата в массив
+            int resutl = 0;
+
+            // заполняем строки
+            for (int j = 0; j < m;j++){
+                resultForfirst += firstDimArray[i][j] + " ";
+                resultForSecond += secondDimArray[i][j] +" ";
+                // System.out.print(firstDimArray[i][j] + " ");
+                //Пытаемся перемножить массивы
+                for(int k = 0; k < n;k++){
+                    resutl += firstDimArray[i][k] + secondDimArray[k][j];
+
+                }
+                arrResult += resutl + " ";
+            }
+            // выводим массивы в консоль
+            System.out.print(resultForfirst + " "+ resultForSecond);
+            System.out.print("\n");
+            arrResult += "\n";
+            // System.out.print(resutl);
+        }
+        System.out.print("Результат умножения:" + "\n" + arrResult);
+
+    }
+}
+
+// Задание 7 
+// Нет проверки ввода для длины и площади 
+
+import java.util.Scanner;
+public class TheSecondTask {
+    public static void main(String[] args) {
+
+        Scanner in2 = new Scanner(System.in);
+        System.out.print("Введите радиус: ");
+        double radius = 0;
+        while (!in2.hasNextInt()) {
+            System.out.println("Это не число !" + "\n" + "Введите число");
+            in2.next(); // this is important!
+        }
+        radius = in2.nextInt();
+
+        Scanner in1 = new Scanner(System.in);
+        System.out.print("площадь или длина ?: ");
+        String m = in1.nextLine();
+
+        if(m.compareTo("площадь") == 0){
+            double area = Math.PI * (radius * radius);
+            System.out.println("Площадь круга равна: " + area);
+        }else if(m.compareTo("длина") == 0){
+            double circumference= Math.PI * 2*radius;
+            System.out.println("Длина окружности равна: " + circumference) ;
+        }else{
+            System.out.println("" + "\n" + "Давай повторим ! ");
+            return;
+        }
+    }
+}
+
+import java.util.Scanner;
+public class TheSecondTask {
+    private static Scanner in = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner d1 = new Scanner(System.in);
+        int number1;
+        System.out.println("Задайте начало диапазона !");
+        while (!d1.hasNextInt() ) {
+            System.out.println("Это не число !");
+            d1.next(); // this is important!
+        }
+        number1 = d1.nextInt();
+        Scanner d2 = new Scanner(System.in);
+        int number2;
+        System.out.println("Задайте конец диапазона !");
+        while (!d2.hasNextInt() ) {
+            System.out.println("Это не число !");
+            d2.next(); // this is important!
+        }
+        number2 = d2.nextInt();
+        int numberRandom = (int)((Math.random() * (number2 - number1)) + number1);
+        System.out.println("Рандомное значение :"  + numberRandom);
+        Scanner d3 = new Scanner(System.in);
+        int number3;
+        int TrysCount =0;
+
+        do {
+            TrysCount++;
+            System.out.print("Введите ваше число: ");
+            number3  = d3.nextInt();
+            if (number3  > numberRandom) {
+                System.out.println("Моё число меньше.");
+            }
+            else if (number3  < numberRandom) System.out.println("Моё число больше.");
+            else System.out.println("Вы угадали!");
+        } while (number3  != numberRandom);
+        System.out.println("Количество попыток: " + TrysCount);
+    }
+}
+
+// Задание 9
+
+import java.util.Scanner;
+
+public class TheSecondTask {
+    public static void main(String[] args) {
+        String[] goods  = {"Ручки", "Тетради", "Карандаши"};
+        int[] quantity = {(int) (Math.random() * 100 + 1),
+                (int) (Math.random() * 100 + 1), (int) (Math.random() * 100 + 1)};
+        Double[] price = {230.4D, 170.0D, 98.0D};
+        Scanner input = new Scanner(System.in);
+        System.out.println("Какой товар посчитать? Есть " + goods[0] + ", " + goods[1] + ", " + goods[2]);
+        String inp = input.next().toLowerCase().trim();
+        switch (inp) {
+            case "ручки": System.out.println(quantity[0] * price[0]);
+            case "тетради": System.out.println(quantity[1] * price[1]);
+            case "карандаши": System.out.println(quantity[2] * price[2]);
+        }
+    }
+}
+
+// задание 10
+import java.util.Scanner;
+public class TheSecondTask {
+    public static void main(String[] args) {
+
+        String[] months = {"ЯНВАРЬ", "ФЕВРАЛЬ", "МАРТ", "АПРЕЛЬ", "МАЙ", "ИЮНЬ", "ИЮЛЬ", "АВГУСТ", "СЕНТЯБРЬ", "ОКТЯБРЬ", "НОЯБРЬ", "ДЕКАБРЬ"};
+
+        int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        String[] weeks = {"Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"};
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите год: ");
+        int year = in.nextInt();
+
+        // Вычисление дня недели для 1 января
+        int week = (year + (year - 1) / 4 + 6) % 7;
+
+        // Подгон февраля под високосный год
+        if (year % 4 != 0 || (year % 100 == 0 && year % 400 != 0)) {
+            days[1] = 28; // Не високосный
+        }
+        else {
+            days[1] = 29; // Високосный
+        }
+
+        // Вывод месяца
+        for (int month = 0; month < months.length; month++) {
+            // Месяц
+            System.out.println("\n\n      " + months[month]);
+
+            // Дни недели
+            for (int j = 1; j < weeks.length; j++) {
+                System.out.print(weeks[j] + " ");
+            }
+            System.out.println(weeks[0]);
+
+            //Отступ до 1 числа
+            for (int j = 0; j < week - 1; j++) {
+                System.out.print("   ");
+            }
+
+            // Вывод чисел
+            int day = 1;
+            for (; day <= days[month]; day++) {
+                System.out.print(day + " ");
+                if (day < 10) {
+                    System.out.print(" ");
+                }
+                week++;
+                if (week == 7) {
+                    week = 0;
+                } else if (week == 1) {
+                    System.out.println();
+                }
+            }
+        }
+    }
+}
